@@ -7,7 +7,7 @@
 //
 // This file is part of jmcm.
 
-#include <omp.h>
+//#include <omp.h>
 #include "mcd.h"
 
 namespace jmcm {
@@ -26,16 +26,16 @@ namespace jmcm {
 	int debug = 0;
 
 	if(debug) Rcpp::Rcout << "Creating MCD object" << std::endl;
-	
+
 	int N     = Y_.n_rows;
 	int n_bta = X_.n_cols;
 	int n_lmd = Z_.n_cols;
         int n_gma = W_.n_cols;
-	
+
 	theta_  = arma::zeros<arma::vec>(n_bta + n_lmd + n_gma);
 	beta_   = arma::zeros<arma::vec>(n_bta);
 	lambda_ = arma::zeros<arma::vec>(n_lmd);
-	gamma_  = arma::zeros<arma::vec>(n_gma);	
+	gamma_  = arma::zeros<arma::vec>(n_gma);
 
 	Xbta_   = arma::zeros<arma::vec>(N);
 	Zlmd_   = arma::zeros<arma::vec>(N);
@@ -44,25 +44,25 @@ namespace jmcm {
 
 	G_      = arma::zeros<arma::mat>(N, n_gma);
 	TResid_ = arma::zeros<arma::vec>(N);
-	
+
 	free_param_ = 0;
-	
+
 	if(debug) Rcpp::Rcout << "MCD object created" << std::endl;
 
-	
+
     }
 
     MCD::~MCD()
     {
     }
-        
+
     double MCD::operator()(const arma::vec &x)
     {
         int debug = 0;
 
         if(debug) Rcpp::Rcout << "UpdateMCD(x)" << std::endl;
 	UpdateMCD(x);
-	
+
 	int i, n_sub = m_.n_elem;
 	double result = 0.0;
 
@@ -80,12 +80,12 @@ namespace jmcm {
 	}
 
         if(debug) Rcpp::Rcout << "after for loop" << std::endl;
-        
+
 	result += arma::sum(arma::log(arma::exp(Zlmd_)));
 
 	// double n = timer.toc();
 	// Rcpp::Rcout << "number of seconds: " << n << std::endl;
-	
+
 	return result;
 
         // int debug = 0;
@@ -214,16 +214,16 @@ namespace jmcm {
 	UpdateMCD(x);
 
 	int n_bta = X_.n_cols, n_lmd = Z_.n_cols, n_gma = W_.n_cols;
-	
+
 	arma::vec grad1, grad2, grad3;
-	
+
 	switch(free_param_) {
 	case 0:
-	    
+
 	    Grad1(grad1);
 	    Grad2(grad2);
 	    Grad3(grad3);
-	    
+
 	    grad = arma::zeros<arma::vec>(theta_.n_rows);
 	    grad.subvec(0, n_bta-1) = grad1;
 	    grad.subvec(n_bta, n_bta+n_lmd-1) = grad2;
@@ -246,7 +246,7 @@ namespace jmcm {
 	default:
 	    Rcpp::Rcout << "Wrong value for free_param_" << std::endl;
 	}
-	
+
 	// int n_sub = m_.n_rows;
 	// int n_bta = X_.n_cols;
 	// int n_lmd = Z_.n_cols;
@@ -333,9 +333,9 @@ namespace jmcm {
 
 	int i, n_sub = m_.n_elem, n_bta = X_.n_cols;
 	grad1 = arma::zeros<arma::vec>(n_bta);
-		
+
 	if(debug) Rcpp::Rcout << "Update grad1" << std::endl;
-	
+
 	for(i = 0; i < n_sub; ++i) {
 	    arma::mat Xi; get_X(i, Xi);
 	    arma::vec ri; get_Resid(i, ri);
@@ -355,7 +355,7 @@ namespace jmcm {
 	grad2 = arma::zeros<arma::vec>(n_lmd);
 
 	if(debug) Rcpp::Rcout << "Update grad2" << std::endl;
-	
+
 	for(i = 0; i < n_sub; ++i) {
 	    arma::vec one = arma::ones<arma::vec>(m_(i));
 	    arma::mat Zi; get_Z(i, Zi);
@@ -383,7 +383,7 @@ namespace jmcm {
 	grad3 = arma::zeros<arma::vec>(n_gma);
 
 	if(debug) Rcpp::Rcout << "Update grad3" << std::endl;
-	
+
 	for(i = 0; i < n_sub; ++i) {
 	    arma::mat Gi; get_G(i, Gi);
 
@@ -391,7 +391,7 @@ namespace jmcm {
 	    arma::mat Di_inv = arma::diagmat(arma::pow(Di.diag(), -1));
 
 	    // arma::vec ri = get_Resid(i);
-	    
+
 	    // grad3 += Gi.t() * Di_inv * (ri - Gi * gamma_);
 
 	    arma::vec Tiri; get_TResid(i, Tiri);
@@ -406,28 +406,28 @@ namespace jmcm {
     {
 	int debug = 0;
 	bool update = true;
-	
+
 	switch(free_param_) {
 	case 0:
 	    if(arma::min(x == theta_) == 1) update = false;
-	    
-	    break;
-	    
-	case 1:
-	    if(arma::min(x == beta_) == 1) update = false; 
 
 	    break;
-	    
+
+	case 1:
+	    if(arma::min(x == beta_) == 1) update = false;
+
+	    break;
+
 	case 2:
 	    if(arma::min(x == lambda_) == 1) update = false;
 
 	    break;
-	    
+
 	case 3:
-	    if(arma::min(x == gamma_) == 1) update = false; 
+	    if(arma::min(x == gamma_) == 1) update = false;
 
 	    break;
-	    
+
 	default:
 	    Rcpp::Rcout << "Wrong value for free_param_" << std::endl;
 	}
@@ -435,13 +435,13 @@ namespace jmcm {
 	if (update) {
 	    UpdateParam(x);
 	    UpdateModel();
-            
+
 	} else {
 	    if (debug)
 		Rcpp::Rcout << "Hey, I did save some time!:)" << std::endl;
 	}
     }
-    
+
     void MCD::UpdateParam(const arma::vec& x)
     {
 	int n_bta = X_.n_cols;
@@ -455,17 +455,17 @@ namespace jmcm {
 	    lambda_ = x.rows(n_bta, n_bta + n_lmd - 1);
 	    gamma_  = x.rows(n_bta + n_lmd, n_bta + n_lmd + n_gma - 1);
 	    break;
-	    
+
 	case 1:
 	    theta_.rows(0, n_bta - 1) = x;
 	    beta_ = x;
 	    break;
-	    
+
 	case 2:
 	    theta_.rows(n_bta, n_bta + n_lmd - 1) = x;
 	    lambda_ = x;
 	    break;
-	    
+
 	case 3:
 	    theta_.rows(n_bta + n_lmd, n_bta + n_lmd + n_gma - 1) = x;
 	    gamma_ = x;
@@ -473,10 +473,10 @@ namespace jmcm {
 
 	default:
 	    Rcpp::Rcout << "Wrong value for free_param_" << std::endl;
-	    
+
 	}
     }
-    
+
     void MCD::UpdateModel()
     {
 	int debug = 0;
@@ -497,7 +497,7 @@ namespace jmcm {
             if(debug) Rcpp::Rcout << "Update Finished.." << std::endl;
 
 	    break;
-	    
+
 	case 1:
 	    Xbta_ = X_ * beta_;
 	    Resid_ = Y_ - Xbta_;
@@ -523,7 +523,7 @@ namespace jmcm {
 	    Rcpp::Rcout << "Wrong value for free_param_" << std::endl;
 	}
     }
-    
+
     void MCD::UpdateBeta()
     {
 	int i, n_sub = m_.n_elem, n_bta = X_.n_cols;
@@ -538,7 +538,7 @@ namespace jmcm {
 	    XSX += Xi.t() * Sigmai_inv * Xi;
 	    XSY += Xi.t() * Sigmai_inv * Yi;
 	}
-	
+
 	arma::vec beta = XSX.i() * XSY;
 
 	set_beta(beta);
@@ -548,7 +548,7 @@ namespace jmcm {
     {
 	set_lambda(x);
     }
-    
+
     void MCD::UpdateGamma()
     {
 	int i, n_sub = m_.n_elem, n_gma = W_.n_cols;
@@ -564,7 +564,7 @@ namespace jmcm {
 	    GDG += Gi.t() * Di_inv * Gi;
 	    GDr += Gi.t() * Di_inv * ri;
 	}
-	
+
 	arma::vec gamma = GDG.i() * GDr;
 
 	set_gamma(gamma);
@@ -572,7 +572,7 @@ namespace jmcm {
 
     void MCD::UpdateG() {
 	int i, j, n_sub = m_.n_elem;
-	
+
 	for(i = 0; i < n_sub; ++i) {
 	    arma::mat Gi = arma::zeros<arma::mat>(m_(i), W_.n_cols);
 
