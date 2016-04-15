@@ -1,7 +1,5 @@
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
 //
-// bfgs.h: NR3's BFGS optimizer, modified to use Armadillo
-//
 // Copyright (C) 2015 Yi Pan and Jianxin Pan
 //
 // This file is part of jmcm.

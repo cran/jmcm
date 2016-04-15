@@ -1,9 +1,5 @@
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
 //
-// bfgs-impl.h: implementation of BFGS optimization algorithm
-//
-// Based on quasinewton.h from Numerical Recipes 3
-//
 // This file is part of jmcm.
 
 /**

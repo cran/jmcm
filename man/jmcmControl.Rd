@@ -4,7 +4,8 @@
 \alias{jmcmControl}
 \title{Control of Joint Mean Covariance Model Fitting}
 \usage{
-jmcmControl(trace = FALSE, profile = TRUE, errorMsg = FALSE)
+jmcmControl(trace = FALSE, profile = TRUE, ignore.const.term = TRUE,
+  errorMsg = FALSE)
 }
 \arguments{
 \item{trace}{whether or not the value of the objective function and the
@@ -12,6 +13,10 @@ parameters should be print on every trace'th iteration.}
 
 \item{profile}{whether or not parameters should be estimated sequentially
 using the idea of profile likelihood.}
+
+\item{ignore.const.term}{whether or not the constant term should be considered 
+when calculating log-likelihood and BIC.
+function}
 
 \item{errorMsg}{whether or not the error message should be print}
 }

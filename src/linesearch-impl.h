@@ -1,25 +1,13 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
-//
 // linesearch-impl.h: implementation of Line Search algorithm
-//
-// Based on roots_multidim.h from Numerical Recipes 3
 //
 // This file is part of jmcm.
 
-/**
- * Constructor
- */
 template <typename T>
-LineSearch<T>::LineSearch()
-{
+LineSearch<T>::LineSearch() {
 }
 
-/**
- * Destructor
- */
 template <typename T>
-LineSearch<T>::~LineSearch()
-{
+LineSearch<T>::~LineSearch() {
 }
 
 /**
@@ -31,9 +19,8 @@ LineSearch<T>::~LineSearch()
  * @param stepmax Maximum step length
  */
 template <typename T>
-void
-LineSearch<T>::GetStep(T &func, arma::vec &x, arma::vec &p,
-		       const double stepmax)
+void LineSearch<T>::GetStep(T &func, arma::vec &x, arma::vec &p,
+                            const double stepmax)
 {
     int debug = 0;
 
@@ -63,16 +50,17 @@ LineSearch<T>::GetStep(T &func, arma::vec &x, arma::vec &p,
     // Calculate the minimum step length
     double test = 0.0;
     for(int i = 0; i != n_pars; ++i)
-	{
-	    double temp = std::abs(p(i)) / std::max(std::abs(xold(i)), 1.0);
-	    if (temp > test) test = temp;
-	}
+    {
+        double temp = std::abs(p(i)) / std::max(std::abs(xold(i)), 1.0);
+        if (temp > test) test = temp;
+    }
     double stepmin = kTolX / test;
 
     double lambda, lambda2, lambda_tmp, f, f2;
     lambda = 1.0; // Always try full Newton step first
     lambda2 = lambda_tmp = f = f2 = 0.0;
-    for (int iter = 0; iter != kIterMax; ++iter) { // Start of iteration loop
+    for (int iter = 0; iter != kIterMax; ++iter) {
+        // Start of iteration loop
 	x = xold + lambda * p;
 	f = func(x);
 
@@ -112,9 +100,9 @@ LineSearch<T>::GetStep(T &func, arma::vec &x, arma::vec &p,
 		double rhs1 = f - fold - lambda*slope;
 		double rhs2 = f2 - fold - lambda2*slope;
 		double a = rhs1/(lambda*lambda)/(lambda-lambda2)
-		    - rhs2/(lambda2*lambda2)/(lambda-lambda2);
+                        - rhs2/(lambda2*lambda2)/(lambda-lambda2);
 		double b = -lambda2*rhs1/(lambda*lambda)/(lambda-lambda2)
-		    + lambda*rhs2/(lambda2*lambda2)/(lambda-lambda2);
+                        + lambda*rhs2/(lambda2*lambda2)/(lambda-lambda2);
 		if (IsInfOrNaN(a) || IsInfOrNaN(b)) {
 		    lambda_tmp = 0.5*lambda;
 		} else if (a == 0.0) {
@@ -153,9 +141,7 @@ LineSearch<T>::GetStep(T &func, arma::vec &x, arma::vec &p,
 }
 
 template <typename T>
-bool
-LineSearch<T>::IsInfOrNaN(double x)
-{
+bool LineSearch<T>::IsInfOrNaN(double x) {
     return (x ==  std::numeric_limits<double>::infinity() ||
 	    x == -std::numeric_limits<double>::infinity() ||
 	    x != x);

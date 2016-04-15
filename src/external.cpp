@@ -25,6 +25,7 @@
 //'@param errorMsg whether or not the error message should be print.
 //'@seealso \code{\link{acd_estimation}} for joint mean covariance model fitting based on ACD,
 //' \code{\link{hpc_estimation}} for joint mean covariance model fitting based on HPC.
+//'@export
 // [[Rcpp::export]]
 Rcpp::List mcd_estimation(arma::vec m,
                           arma::vec Y,
@@ -197,7 +198,7 @@ Rcpp::List mcd_estimation(arma::vec m,
                               Rcpp::Named("lambda") = lambda,
                               Rcpp::Named("gamma") = gamma,
                               Rcpp::Named("loglik") = -f_min / 2,
-                              Rcpp::Named("BIC") = f_min / n_sub + n_par * log(n_sub) / n_sub,
+                              Rcpp::Named("BIC") = f_min / n_sub + n_par * log(static_cast<double>(n_sub)) / n_sub,
                               Rcpp::Named("iter") = n_iters);
 }
 
@@ -214,6 +215,7 @@ Rcpp::List mcd_estimation(arma::vec m,
 //'@param errorMsg whether or not the error message should be print.
 //'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting based on MCD,
 //' \code{\link{hpc_estimation}} for joint mean covariance model fitting based on HPC.
+//'@export
 // [[Rcpp::export]]
 Rcpp::List acd_estimation(arma::vec m,
                           arma::vec Y,
@@ -383,7 +385,7 @@ Rcpp::List acd_estimation(arma::vec m,
                               Rcpp::Named("gamma") = gamma,
                               Rcpp::Named("loglik") = -f_min / 2,
                               Rcpp::Named("BIC") = f_min / n_sub
-                              + n_par * log(n_sub) / n_sub,
+                              + n_par * log(static_cast<double>(n_sub)) / n_sub,
                               Rcpp::Named("iter") = n_iters);
 }
 
@@ -400,6 +402,7 @@ Rcpp::List acd_estimation(arma::vec m,
 //'@param errorMsg whether or not the error message should be print.
 //'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting based on MCD,
 //' \code{\link{acd_estimation}} for joint mean covariance model fitting based on ACD.
+//'@export
 // [[Rcpp::export]]
 Rcpp::List hpc_estimation(arma::vec m,
                           arma::vec Y,
@@ -567,7 +570,7 @@ Rcpp::List hpc_estimation(arma::vec m,
                               Rcpp::Named("lambda") = lambda,
                               Rcpp::Named("gamma") = gamma,
                               Rcpp::Named("loglik") = -f_min / 2,
-                              Rcpp::Named("BIC") = f_min / n_sub + n_par * log(n_sub) / n_sub,
+                              Rcpp::Named("BIC") = f_min / n_sub + n_par * log(static_cast<double>(n_sub)) / n_sub,
                               Rcpp::Named("iter") = n_iters);
 }
 

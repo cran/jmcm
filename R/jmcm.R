@@ -273,6 +273,12 @@ optimizeJmcm <- function(m, Y, X, Z, W, time, cov.method, control, start)
     est <- hpc_estimation(m, Y, X, Z, W, start, control$trace, control$profile, control$errorMsg)
   }
 
+  if (!(control$ignore.const.term)) {
+    const.term = - sum(m) * 0.5 * log(2 * pi)
+    est$loglik = est$loglik + const.term
+    est$BIC = est$BIC - 2 / length(m) * const.term
+  }
+  
   est
 }
 

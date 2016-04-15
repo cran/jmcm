@@ -14,6 +14,7 @@
 #'@param errorMsg whether or not the error message should be print.
 #'@seealso \code{\link{acd_estimation}} for joint mean covariance model fitting based on ACD,
 #' \code{\link{hpc_estimation}} for joint mean covariance model fitting based on HPC.
+#'@export
 mcd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errorMsg = FALSE) {
     .Call('jmcm_mcd_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errorMsg)
 }
@@ -31,6 +32,7 @@ mcd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, 
 #'@param errorMsg whether or not the error message should be print.
 #'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting based on MCD,
 #' \code{\link{hpc_estimation}} for joint mean covariance model fitting based on HPC.
+#'@export
 acd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errorMsg = FALSE) {
     .Call('jmcm_acd_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errorMsg)
 }
@@ -48,6 +50,7 @@ acd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, 
 #'@param errorMsg whether or not the error message should be print.
 #'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting based on MCD,
 #' \code{\link{acd_estimation}} for joint mean covariance model fitting based on ACD.
+#'@export
 hpc_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errorMsg = FALSE) {
     .Call('jmcm_hpc_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errorMsg)
 }

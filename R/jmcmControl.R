@@ -15,11 +15,15 @@ namedList <- function(...) {
 #' parameters should be print on every trace'th iteration.
 #' @param profile whether or not parameters should be estimated sequentially
 #' using the idea of profile likelihood.
+#' @param ignore.const.term whether or not the constant term should be considered 
+#' when calculating log-likelihood and BIC.
+#' function
 #' @param errorMsg whether or not the error message should be print
 #'
 #' @export jmcmControl
-jmcmControl <- function(trace = FALSE, profile = TRUE, errorMsg = FALSE)
+jmcmControl <- function(trace = FALSE, profile = TRUE, 
+                        ignore.const.term = TRUE, errorMsg = FALSE)
 {
-    structure(namedList(trace, profile, errorMsg),
+    structure(namedList(trace, profile, ignore.const.term, errorMsg),
               class = "jmcmControl")
 }
