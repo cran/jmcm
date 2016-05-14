@@ -5,7 +5,7 @@
 \title{Control of Joint Mean Covariance Model Fitting}
 \usage{
 jmcmControl(trace = FALSE, profile = TRUE, ignore.const.term = TRUE,
-  errorMsg = FALSE)
+  original.poly.order = FALSE, errorMsg = FALSE)
 }
 \arguments{
 \item{trace}{whether or not the value of the objective function and the
@@ -17,6 +17,9 @@ using the idea of profile likelihood.}
 \item{ignore.const.term}{whether or not the constant term should be considered 
 when calculating log-likelihood and BIC.
 function}
+
+\item{original.poly.order}{whether or not the original poly order p q d should 
+be used}
 
 \item{errorMsg}{whether or not the error message should be print}
 }

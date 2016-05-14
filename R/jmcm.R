@@ -79,8 +79,10 @@ NULL
 #'
 #' @examples
 #' cattleA <- cattle[cattle$group=='A', ]
-#' fit.hpc <- jmcm(weight | id | I(ceiling(day/14 + 1)) ~ 1 | 1,
-#' data=cattleA, triple = c(8, 2, 2), cov.method = 'hpc')
+#' fit.mcd <- jmcm(weight | id | I(ceiling(day/14 + 1)) ~ 1 | 1,
+#' data=cattleA, triple = c(8, 4, 3), cov.method = 'mcd', 
+#' control = jmcmControl(trace = TRUE, ignore.const.term = FALSE, 
+#' original.poly.order = TRUE))
 #' @export
 jmcm <- function(formula, data = NULL, triple = c(3, 3, 3),
                  cov.method = c('mcd', 'acd', 'hpc'),
@@ -176,6 +178,12 @@ ldFormula <- function(formula, data = NULL, triple = c(3,3,3),
   m <- table(id)
   attr(m, "dimnames") <- NULL
 
+  if(control$original.poly.order) {
+    tmp = triple[2]
+    triple[2] = triple[3]
+    triple[3] = tmp
+  }
+  
   X <- X[index, ]
   Z <- Z[index, ]
   for (i in 1:triple[1]) X = cbind(X, time^i)

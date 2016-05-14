@@ -18,12 +18,14 @@ namedList <- function(...) {
 #' @param ignore.const.term whether or not the constant term should be considered 
 #' when calculating log-likelihood and BIC.
 #' function
+#' @param original.poly.order whether or not the original poly order p q d should 
+#' be used
 #' @param errorMsg whether or not the error message should be print
 #'
 #' @export jmcmControl
 jmcmControl <- function(trace = FALSE, profile = TRUE, 
-                        ignore.const.term = TRUE, errorMsg = FALSE)
+                        ignore.const.term = TRUE, original.poly.order = FALSE, errorMsg = FALSE)
 {
-    structure(namedList(trace, profile, ignore.const.term, errorMsg),
+    structure(namedList(trace, profile, ignore.const.term, original.poly.order, errorMsg),
               class = "jmcmControl")
 }

@@ -1,9 +1,9 @@
-3306234e8a802f25982a207a35414212 *DESCRIPTION
+78740a9f18f235d46213f410c10a9f73 *DESCRIPTION
 e5de9d51eb610d7893b63faebeaa50c7 *NAMESPACE
 475c9f5861391a9adbce315cd739e13a *R/AllClass.R
 7c76937e999f47443022378d57c33b65 *R/RcppExports.R
-76a259481b775f10f675ef98662873cf *R/jmcm.R
-e94b0d527a535d9017916b9d91256d0c *R/jmcmControl.R
+306d14ab68a99fe521c3c494941cef2e *R/jmcm.R
+584b9bdda14434f283f83e43a843b479 *R/jmcmControl.R
 42329959f4c06580bebeee409a305114 *R/utilities.R
 1cbcd07265a0f23fcc6f3474fa007c51 *data/aids.rda
 f6cfc2e78dd22574dbd1b63c83538b00 *data/cattle.rda
@@ -19,8 +19,8 @@ e12bdd20e4b4ce4a4574a677e4521965 *man/cash-ACD-method.Rd
 f53110f847b2caaf40441a2ac02a6c8a *man/cattle.Rd
 d063e50d81529cbc4f536a6805b20228 *man/getJMCM.Rd
 e2ec29bdc3e74253a0f7073dc34015f7 *man/hpc_estimation.Rd
-70000b62f3ac6ab734d3650cbe86d6b5 *man/jmcm.Rd
-35b9e1aa75f2792c00ddfcc76c79a25f *man/jmcmControl.Rd
+1ce0dfc94088a3b4de3e4f62b5a6972f *man/jmcm.Rd
+d1151741535f39b0a252fd3bea645cc3 *man/jmcmControl.Rd
 a0fc5415f643fe82eb775c5f694c3deb *man/jmcmMod-class.Rd
 27907e4ceab7b539a657ae46d78a1bcd *man/mcd_estimation.Rd
 23a72011d181430228599a1493853899 *man/meanplot.Rd
