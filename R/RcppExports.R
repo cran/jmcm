@@ -9,14 +9,17 @@
 #'@param Z model matrix for the diagonal matrix.
 #'@param W model matrix for the lower triangular matrix.
 #'@param start starting values for the parameters in the model.
-#'@param trace the values of the objective function and the parameters are printed for all the trace'th iterations.
-#'@param profile whether parameters should be estimated sequentially using the idea of profile likelihood or not.
-#'@param errorMsg whether or not the error message should be print.
-#'@seealso \code{\link{acd_estimation}} for joint mean covariance model fitting based on ACD,
-#' \code{\link{hpc_estimation}} for joint mean covariance model fitting based on HPC.
+#'@param trace the values of the objective function and the parameters are
+#'       printed for all the trace'th iterations.
+#'@param profile whether parameters should be estimated sequentially using the
+#'       idea of profile likelihood or not.
+#'@param errormsg whether or not the error message should be print.
+#'@seealso \code{\link{acd_estimation}} for joint mean covariance model fitting
+#'         based on ACD, \code{\link{hpc_estimation}} for joint mean covariance
+#'         model fitting based on HPC.
 #'@export
-mcd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errorMsg = FALSE) {
-    .Call('jmcm_mcd_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errorMsg)
+mcd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errormsg = FALSE) {
+    .Call('jmcm_mcd_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errormsg)
 }
 
 #'@title Fit Joint Mean-Covariance Models based on ACD
@@ -27,14 +30,17 @@ mcd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, 
 #'@param Z model matrix for the diagonal matrix.
 #'@param W model matrix for the lower triangular matrix.
 #'@param start starting values for the parameters in the model.
-#'@param trace the values of the objective function and the parameters are printed for all the trace'th iterations.
-#'@param profile whether parameters should be estimated sequentially using the idea of profile likelihood or not.
-#'@param errorMsg whether or not the error message should be print.
-#'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting based on MCD,
-#' \code{\link{hpc_estimation}} for joint mean covariance model fitting based on HPC.
+#'@param trace the values of the objective function and the parameters are
+#'       printed for all the trace'th iterations.
+#'@param profile whether parameters should be estimated sequentially using the
+#'       idea of profile likelihood or not.
+#'@param errormsg whether or not the error message should be print.
+#'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting
+#'         based on MCD, \code{\link{hpc_estimation}} for joint mean covariance
+#'         model fitting based on HPC.
 #'@export
-acd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errorMsg = FALSE) {
-    .Call('jmcm_acd_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errorMsg)
+acd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errormsg = FALSE) {
+    .Call('jmcm_acd_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errormsg)
 }
 
 #'@title Fit Joint Mean-Covariance Models based on HPC
@@ -45,13 +51,16 @@ acd_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, 
 #'@param Z model matrix for the diagonal matrix.
 #'@param W model matrix for the lower triangular matrix.
 #'@param start starting values for the parameters in the model.
-#'@param trace the values of the objective function and the parameters are printed for all the trace'th iterations.
-#'@param profile whether parameters should be estimated sequentially using the idea of profile likelihood or not.
-#'@param errorMsg whether or not the error message should be print.
-#'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting based on MCD,
-#' \code{\link{acd_estimation}} for joint mean covariance model fitting based on ACD.
+#'@param trace the values of the objective function and the parameters are
+#'       printed for all the trace'th iterations.
+#'@param profile whether parameters should be estimated sequentially using the
+#'       idea of profile likelihood or not.
+#'@param errormsg whether or not the error message should be print.
+#'@seealso \code{\link{mcd_estimation}} for joint mean covariance model fitting
+#'         based on MCD, \code{\link{acd_estimation}} for joint mean covariance
+#'         model fitting based on ACD.
 #'@export
-hpc_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errorMsg = FALSE) {
-    .Call('jmcm_hpc_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errorMsg)
+hpc_estimation <- function(m, Y, X, Z, W, start, trace = FALSE, profile = TRUE, errormsg = FALSE) {
+    .Call('jmcm_hpc_estimation', PACKAGE = 'jmcm', m, Y, X, Z, W, start, trace, profile, errormsg)
 }
 
