@@ -1,10 +1,10 @@
-a573ef705ea1e02bd5f07ae84f08d8b8 *DESCRIPTION
+e5a22d6870837accd46956d44ec8cec9 *DESCRIPTION
 e5de9d51eb610d7893b63faebeaa50c7 *NAMESPACE
 475c9f5861391a9adbce315cd739e13a *R/AllClass.R
 8f0b35b370cff7bcda93f24bb2320ebc *R/RcppExports.R
 790c79423f5a964f7a8925e235cad1d8 *R/jmcm.R
 a034def3f47eb069c1f04b9bcada9c85 *R/jmcmControl.R
-42329959f4c06580bebeee409a305114 *R/utilities.R
+28d883d66f9585622636e53a709ac899 *R/utilities.R
 1cbcd07265a0f23fcc6f3474fa007c51 *data/aids.rda
 f6cfc2e78dd22574dbd1b63c83538b00 *data/cattle.rda
 f310cb8a075281a4c74c34d69433e4cc *man/ACD-class.Rd
@@ -36,7 +36,7 @@ e376c469b1311fa4ba4a20b39d7a1a7b *src/arma_util.cpp
 4fbbac686b224b346bdfeb73e31721dc *src/arma_util.h
 5b15a98b9a53686f7548ab740acec071 *src/bfgs-impl.h
 06609982fbb2d3b05318f97d3c4bf482 *src/bfgs.h
-6d19cdb5fcfe7f63a6af9a607b0f1c3b *src/external.cpp
+fcb26ee751bba3d04829bfe04330f481 *src/external.cpp
 1f3b03c6d1e96fdf63df493016c7c0f4 *src/hpc.cpp
 059d2df31f43a3630f4b041ae8141e22 *src/hpc.h
 a9087eb80c3647956b90bb59adb226e2 *src/linesearch-impl.h
