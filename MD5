@@ -1,14 +1,17 @@
-e0cf0f6a454c65bd49cd355162b75c1a *DESCRIPTION
+cd19f07104b7b22adf3a64a1b0ca4a5e *DESCRIPTION
 f93b63ca5ce878be2940d025eba0da5e *NAMESPACE
 7a569103da63d26614ebb1b757fe0ee0 *R/AllClass.R
 2fd0173180e7276b8f2525a6b0eeca1d *R/RcppExports.R
 35dde96ecf8ba85a7b8dfe60e807cdbb *R/jmcm.R
 a034def3f47eb069c1f04b9bcada9c85 *R/jmcmControl.R
 64ebe8ccab3fb4ca693a79ee6ce73b6e *R/utilities.R
+001749bb505af48282b832d3d1d427ec *build/vignette.rds
 1cbcd07265a0f23fcc6f3474fa007c51 *data/aids.rda
 f6cfc2e78dd22574dbd1b63c83538b00 *data/cattle.rda
 e8ca594253f91ae5526a3ee2169c9c1b *inst/CITATION
-dcbac3b5fae370c5a82218193a48bfb6 *inst/NEWS.Rd
+d838ff76f4a81b44f063f11953602bdd *inst/NEWS.Rd
+047e308a7a5fd9ce4ea9e37d00026d44 *inst/doc/jss2542.pdf
+13bc767500d8821a36fce686fbd936c9 *inst/doc/jss2542.pdf.asis
 f5278c284245a7c8f6752f972762b2e3 *man/acd_estimation.Rd
 c0e68aab5bf929d00e31e04d8b750f17 *man/aids.Rd
 827c788f70989c452ea57d84e33a1c31 *man/bootcurve.Rd
@@ -41,3 +44,4 @@ a9087eb80c3647956b90bb59adb226e2 *src/linesearch_impl.h
 f934f516e9c3edceec9beae5084d49a7 *src/mcd.h
 c05f6b22baf512618b081f27c80d605a *tests/testthat.R
 ff5ce1e7b2e24bb8513f60ac408dbe50 *tests/testthat/test-jmcm.R
+13bc767500d8821a36fce686fbd936c9 *vignettes/jss2542.pdf.asis
