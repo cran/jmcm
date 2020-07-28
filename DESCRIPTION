@@ -1,7 +1,7 @@
 Package: jmcm
 Type: Package
 Title: Joint Mean-Covariance Models using 'Armadillo' and S4
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(person("Jianxin", "Pan", email = "Jianxin.Pan@manchester.ac.uk",
                   role = c("aut", "cre")),
              person("Yi", "Pan", email = "ypan1988@gmail.com",
@@ -25,6 +25,6 @@ URL: https://github.com/ypan1988/jmcm/
 BugReports: https://github.com/ypan1988/jmcm/issues
 Suggests: testthat, R.rsp
 VignetteBuilder: R.rsp
-Packaged: 2018-11-10 09:36:42 UTC; pany
+Packaged: 2020-07-28 14:32:05 UTC; yipan
 Repository: CRAN
-Date/Publication: 2018-11-10 19:40:06 UTC
+Date/Publication: 2020-07-28 15:20:03 UTC
