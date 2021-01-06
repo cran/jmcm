@@ -1,15 +1,15 @@
-0c86c3df21c10bb44037bfeaee3b7483 *DESCRIPTION
+e2c39b5e180d057b9ced6a26dfaa31d4 *DESCRIPTION
 f93b63ca5ce878be2940d025eba0da5e *NAMESPACE
 7a569103da63d26614ebb1b757fe0ee0 *R/AllClass.R
 2fd0173180e7276b8f2525a6b0eeca1d *R/RcppExports.R
-35dde96ecf8ba85a7b8dfe60e807cdbb *R/jmcm.R
+d0c662e32e74b7a4dc716c51b89c02ea *R/jmcm.R
 a034def3f47eb069c1f04b9bcada9c85 *R/jmcmControl.R
 d8cd269034517e472d4ac803de33dfca *R/utilities.R
 ff47f5921662aa557da4e14651666945 *build/vignette.rds
 1cbcd07265a0f23fcc6f3474fa007c51 *data/aids.rda
 f6cfc2e78dd22574dbd1b63c83538b00 *data/cattle.rda
 e8ca594253f91ae5526a3ee2169c9c1b *inst/CITATION
-6c59035d3a74f372578fad2e70b2ddef *inst/NEWS.Rd
+7f764ed5ecf005213abb4eeb0e1b3dfd *inst/NEWS.Rd
 94d7b75b74230cd1e5564fe33d5e45dd *inst/doc/jss2542.pdf
 13bc767500d8821a36fce686fbd936c9 *inst/doc/jss2542.pdf.asis
 f5278c284245a7c8f6752f972762b2e3 *man/acd_estimation.Rd
@@ -35,7 +35,7 @@ ba769ac47c93402c557e1c49a2a83180 *src/Makevars.win
 8253eca8c9c91b27412308e6115e15bb *src/bfgs.h
 e796872481284f108fa117421b9f913b *src/bfgs_impl.h
 db95ab9327e03d2148e9836c20c5b447 *src/external.cpp
-1f8c52d27816b0aab70fe27103be6e09 *src/hpc.h
+560be0b0cb0d5301929142df635df5c5 *src/hpc.h
 4558dddc7a67334ddd9af6038772a598 *src/init.c
 8a2fd568ea06e8dca7e10eba30511f91 *src/jmcm_base.h
 cf5d5ebd5af8a08104249cf6e579a8c7 *src/jmcm_fit.h
